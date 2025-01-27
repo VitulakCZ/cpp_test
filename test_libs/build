@@ -1,2 +1,0 @@
-#g++ -c test.cpp libtest.cpp && g++ -o test test.o libtest.o && ./test
-g++ -o test test.cpp libtest.cpp && ./test

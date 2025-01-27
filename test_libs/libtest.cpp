@@ -1,6 +1,5 @@
 #include <string>
-#include "test.h"
-
+// Nejlepší knihovna všech dob!
 int test_funkce(int i) {
     return i + 1;
 }
