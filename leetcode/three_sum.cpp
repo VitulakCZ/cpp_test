@@ -41,24 +41,27 @@ vector<vector<int>> three_sum(vector<int>& nums, int target) {
         else if (index1 == 2 && index2 == 0) stredni_cislo = nums[1];
         ret_serazeno.push_back({nejnizsi_cislo, stredni_cislo, nejvyssi_cislo});
     }
-    vector<int> index_vyhodit;
+    vector<int> indexy_vyhodit;
     for (int i = 0; i < ret_serazeno.size(); i++) {
         for (int j = ret_serazeno.size() - 1; j > i; j--) {
-            if (ret_serazeno[i] == ret_serazeno[j]) index_vyhodit.push_back(i);
+            if (ret_serazeno[i] == ret_serazeno[j]) {
+                indexy_vyhodit.push_back(i);
+            };
         }
     }
-    for (int index : index_vyhodit) {
-        ret_serazeno.erase(ret_serazeno.begin() + index);
+    for (int index : indexy_vyhodit) {
+        ret_serazeno[index] = {};
     }
     return ret_serazeno;
 }
 
 int main() {
     //vector<int> nums = {40, -20, 10, 10, 70, -50};
-    vector<int> nums = {1, 2, 4, 3, 6, 7};
+    vector<int> nums = {1, 2, 4, 3, 1, 2, 4, 3, 6, 7, 1};
     int target = 10;
     vector<vector<int>> _final = three_sum(nums, target);
     for (vector<int> nums : _final) {
+        if (nums.empty()) continue;
         for (int num : nums) {
             cout << num << ' ';
         }
