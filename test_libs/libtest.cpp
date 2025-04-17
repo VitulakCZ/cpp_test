@@ -1,9 +1,15 @@
-#include <string>
+#include <cstdio>
 // Nejlepší knihovna všech dob!
 int test_funkce(int i) {
     return i + 1;
 }
 
-const char *do_string(const char *string) {
-    return ((std::string)string + '\n').c_str();
+void otevrit(const char *jmeno) {
+    int c;
+    FILE *file;
+    file = fopen(jmeno, "r");
+    while ((c = getc(file)) != '\n')
+        putchar(c);
+    putchar(c);
+    fclose(file);
 }
